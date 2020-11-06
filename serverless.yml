@@ -1,0 +1,31 @@
+service: serverless-hello
+
+frameworkVersion: '2'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: us-east-1
+  
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - http:
+          path: api/hello
+          method: get
+          
+  myIp:
+    handler: handler.getMyIpAddress
+    events:
+      - http:
+          path: api/myip
+          method: get
+          
+  counter:
+    handler: handler.counter
+    events:
+      - http:
+          path: api/counter
+          method: get 
+          
